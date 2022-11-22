@@ -9,15 +9,23 @@ class Main {
 
         //положительное число увеличит, отрицательное уменьшит, 0 - предупреждение
         counter.increaseCounter(1);
+        System.out.println("current " + counter.counter);
 
-        //рассчет количества четных и не четных чисел
-        counter.checkEvenness(1, 10);
+        counter.increase(1);
+        System.out.println("current " + counter.counter);
+        counter.icr();
+        if(counter.counter >52) return;
+        System.out.println("current " + counter.counter);
+
+
+
+
 
     }
 }
 
 class Counter {
-    private int counter;
+    int counter;
     private String nameCounter;
 
     {
@@ -30,10 +38,20 @@ class Counter {
     }
 
     public Counter(String nameCounter) {
-        this.nameCounter = nameCounter;
+        this(nameCounter,0);
     }
 
-    //метод увеличит счетчик на любое положительное число, сообщит если 0, убавит если отрицательное
+    public int increase( int value){
+        counter += value;
+
+        return counter;
+    }
+
+    public int icr(){
+
+        return counter++;
+    }
+
     //не делал return, так как в данной задачи нет применения возвращаемого по return, а только вывод в консоль
     public void increaseCounter(int setNumber){
 
